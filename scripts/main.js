@@ -77,10 +77,19 @@ function testAnimation() {
     const base = document.querySelector('.base-container');
 
     moveButtons.forEach((button) => {
-       button.addEventListener('click', () => {
+       button.addEventListener('mousedown', () => {
+        animateAfterMove();
         base.classList.toggle('fade');
        });
     });
+}
+
+function animateAfterMove() {
+    const leftMove = document.querySelector('.left-loading-move');
+    const rightMove = document.querySelector('.right-loading-move');
+
+    leftMove.style.animation = 'slideInLeft 1s ease-in-out, moveUpDown 1.5s linear 1s';
+    rightMove.style.animation = 'slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s';
 }
 
 testAnimation();

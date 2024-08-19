@@ -61,7 +61,8 @@ button {
     top: 35%;
     left: 0;
     height: 250px;
-    animation: slideInLeft 1s ease-in-out, moveUpDown 1.5s linear 1s;
+    transform: translateX(-600px);
+    /* animation: slideInLeft 1s ease-in-out, moveUpDown 1.5s linear 1s; */
 }
 
 @keyframes slideInLeft {
@@ -79,7 +80,8 @@ button {
     top: 35%;
     right: 0;
     height: 250px;
-    animation: slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s;
+    transform: translateX(600px);
+    /* animation: slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s; */
 }
 
 @keyframes slideInRight {
