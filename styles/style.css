@@ -46,3 +46,50 @@ button {
 .moves-text {
     cursor: pointer;
 }
+
+.left-loading-move {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    height: 250px;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-600px);
+    }
+
+    to {
+        transform: translate(0);
+    }
+}
+
+.left-loading-move {
+    animation-name: slideInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+
+.right-loading-move {
+    position: absolute;
+    top: 35%;
+    right: 0;
+    height: 250px;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(600px);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.right-loading-move {
+    animation-name: slideInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
