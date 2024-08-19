@@ -6,12 +6,32 @@
         <title>Rock, Paper, Scissors Game</title>
 
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     </head>
     <body>
-        <p>CHOOSE</p>
-        <button onclick="playGame('Rock')">ROCK</button>
-        <button onclick="playGame('Paper')">PAPER</button>
-        <button onclick="playGame('Scissors')">SCISSORS</button>
+        <p class="choose">CHOOSE</p>
+        <div class="move-choices">
+            <div class="moves-container">
+                <button onclick="playGame('Rock')">
+                    <img class="move-img" src="img/rock-paw.png">
+                </button>
+                <p class="moves-text">ROCK</p>
+            </div>
+            <div class="moves-container">
+                <button onclick="playGame('Paper')">
+                    <img class="move-img" src="img/paper-paw.png">
+                </button>
+                <p class="moves-text">PAPER</p>
+            </div>
+            <div class="moves-container">
+                <button onclick="playGame('Scissors')">
+                    <img class="move-img" src="img/scissors-paw.png">
+                </button>
+                <p class="moves-text">SCISSORS</p>
+            </div>
+        </div>
 
         <script src="scripts/main.js"></script>
     </body>
