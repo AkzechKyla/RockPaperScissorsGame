@@ -68,4 +68,19 @@ function displayFeedbackAndScore(gameState, playerMove, computerMove) {
         score.draw += 1;
         console.log("It's a TIE!");
     }
+
+    console.log(score);
 }
+
+function testAnimation() {
+    const moveButtons = document.querySelectorAll('.move-img');
+    const base = document.querySelector('.base-container');
+
+    moveButtons.forEach((button) => {
+       button.addEventListener('click', () => {
+        base.classList.toggle('fade');
+       });
+    });
+}
+
+testAnimation();

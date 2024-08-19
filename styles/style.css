@@ -2,10 +2,6 @@ body {
     background-color: #ffe3db;
     font-family: "Gamja Flower", "Roboto", sans-serif;
     color: #8c6338;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
 }
 
 p {
@@ -17,6 +13,19 @@ button {
     background-color: #FFE3DB;
     border: none;
     cursor: pointer;
+}
+
+.base-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out    ;
+}
+
+.base-container.fade {
+    opacity: 0;
 }
 
 .choose {
