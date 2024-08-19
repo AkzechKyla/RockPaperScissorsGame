@@ -52,6 +52,7 @@ button {
     top: 35%;
     left: 0;
     height: 250px;
+    animation: slideInLeft 1s ease-in-out, moveUpDown 1.5s linear 1s;
 }
 
 @keyframes slideInLeft {
@@ -64,18 +65,12 @@ button {
     }
 }
 
-.left-loading-move {
-    animation-name: slideInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-}
-
-
 .right-loading-move {
     position: absolute;
     top: 35%;
     right: 0;
     height: 250px;
+    animation: slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s;
 }
 
 @keyframes slideInRight {
@@ -88,8 +83,11 @@ button {
     }
 }
 
-.right-loading-move {
-    animation-name: slideInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
+@keyframes moveUpDown {
+    0%, 50%, 100% {
+        transform: translateY(0);
+    }
+    25%, 75% {
+        transform: translateY(-100px);
+    }
 }
