@@ -77,10 +77,24 @@ function testAnimation() {
     const base = document.querySelector('.base-container');
 
     moveButtons.forEach((button) => {
-       button.addEventListener('mousedown', () => {
+       button.addEventListener('click', () => {
         animateAfterMove();
         base.classList.toggle('fade');
+        disableClickables();
        });
+    });
+}
+
+function disableClickables() {
+    const moveButtons = document.querySelectorAll('.move-img');
+    const moveTexts = document.querySelectorAll('.moves-text');
+
+    moveButtons.forEach((button) => {
+        button.style.cursor = 'auto';
+    });
+
+    moveTexts.forEach((text) => {
+        text.style.cursor = 'auto';
     });
 }
 
@@ -88,8 +102,18 @@ function animateAfterMove() {
     const leftMove = document.querySelector('.left-loading-move');
     const rightMove = document.querySelector('.right-loading-move');
 
+    // reset animation style
+    leftMove.style.animation = 'none';
+    rightMove.style.animation = 'none';
+
+    // forces a reflow, allowing the animation to restart
+    void leftMove.offsetWidth;
+    void rightMove.offsetWidth;
+
     leftMove.style.animation = 'slideInLeft 1s ease-in-out, moveUpDown 1.5s linear 1s';
+    leftMove.style.animationFillMode = 'forwards';
     rightMove.style.animation = 'slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s';
+    rightMove.style.animationFillMode = 'forwards';
 }
 
 testAnimation();
