@@ -2,6 +2,7 @@ body {
     background-color: #ffe3db;
     font-family: "Gamja Flower", "Roboto", sans-serif;
     color: #8c6338;
+    overflow: hidden;
 }
 
 p {
