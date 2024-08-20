@@ -55,9 +55,8 @@ function playGame(playerMove) {
     displayMoveAndScore(gameState, playerMove, computerMove);
 }
 
-function displayMoveAndScore(gameState, playerMove, computerMove) {
+function getPlayerMoveImage(playerMove) {
     let playerMoveImage = '';
-    let computerMoveImage = '';
 
     if (playerMove === 'Rock') {
         playerMoveImage = document.getElementById('player-rock');
@@ -67,6 +66,12 @@ function displayMoveAndScore(gameState, playerMove, computerMove) {
         playerMoveImage = document.getElementById('player-scissors');
     }
 
+    return playerMoveImage;
+}
+
+function getComputerMoveImage(computerMove) {
+    let computerMoveImage = '';
+
     if (computerMove === 'Rock') {
         computerMoveImage = document.getElementById('computer-rock');
     } else if (computerMove === 'Paper') {
@@ -74,6 +79,13 @@ function displayMoveAndScore(gameState, playerMove, computerMove) {
     } else if (computerMove === 'Scissors') {
         computerMoveImage = document.getElementById('computer-scissors');
     }
+
+    return computerMoveImage;
+}
+
+function displayMoveAndScore(gameState, playerMove, computerMove) {
+    let playerMoveImage = getPlayerMoveImage(playerMove);
+    let computerMoveImage = getComputerMoveImage(computerMove);
 
     if (gameState === 'won') {
         score.won += 1;
