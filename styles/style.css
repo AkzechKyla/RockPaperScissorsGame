@@ -126,10 +126,11 @@ button {
 .players-move-img {
     position: absolute;
     left: 0;
-
+    display: none;
 }
 
 .computers-move-img {
     position: absolute;
     right: 0;
+    display: none;
 }

@@ -52,10 +52,29 @@ function playGame(playerMove) {
         }
     }
 
-    displayFeedbackAndScore(gameState, playerMove, computerMove);
+    displayMoveAndScore(gameState, playerMove, computerMove);
 }
 
-function displayFeedbackAndScore(gameState, playerMove, computerMove) {
+function displayMoveAndScore(gameState, playerMove, computerMove) {
+    let playerMoveImage = '';
+    let computerMoveImage = '';
+
+    if (playerMove === 'Rock') {
+        playerMoveImage = document.getElementById('player-rock');
+    } else if (playerMove === 'Paper') {
+        playerMoveImage = document.getElementById('player-paper');
+    } else if (playerMove === 'Scissors') {
+        playerMoveImage = document.getElementById('player-scissors');
+    }
+
+    if (computerMove === 'Rock') {
+        computerMoveImage = document.getElementById('computer-rock');
+    } else if (computerMove === 'Paper') {
+        computerMoveImage = document.getElementById('computer-paper');
+    } else if (computerMove === 'Scissors') {
+        computerMoveImage = document.getElementById('computer-scissors');
+    }
+
     if (gameState === 'won') {
         score.won += 1;
         console.log(`${playerMove} beats ${computerMove}. You won.`);
@@ -66,6 +85,11 @@ function displayFeedbackAndScore(gameState, playerMove, computerMove) {
         score.draw += 1;
         console.log("It's a TIE!");
     }
+
+    setTimeout(() => {
+        playerMoveImage.style.display = 'block';
+        computerMoveImage.style.display = 'block';
+    }, 2500);
 
     console.log(score);
 }
