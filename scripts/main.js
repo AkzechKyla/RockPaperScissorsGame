@@ -85,11 +85,11 @@ function displayFeedbackMessage(gameState, playerMove, computerMove) {
         p1.innerHTML = `${playerMove} beats ${computerMove}.`;
 
         if (gameState === 'won') {
-            p2.innerHTML = 'You won!';
+            p2.innerHTML = 'YOU WON!';
         } else if (gameState === 'lost') {
-            p2.innerHTML = 'You lost!';
+            p2.innerHTML = 'YOU LOST!';
         } else if (gameState === 'draw') {
-            p2.innerHTML = "It's a TIE!";
+            p2.innerHTML = "IT'S A TIE!";
         }
     }, defaultTimeout)
 
