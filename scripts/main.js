@@ -102,6 +102,13 @@ function displayMoveAndScore(gameState, playerMove, computerMove) {
         playerMoveImage.style.display = 'block';
         computerMoveImage.style.display = 'block';
     }, 2500);
+
+    const top = document.querySelector('.top-container');
+    top.addEventListener('click', () => {
+        playerMoveImage.style.display = 'none';
+        computerMoveImage.style.display = 'none';
+    });
+
     console.log(score);
 }
 
