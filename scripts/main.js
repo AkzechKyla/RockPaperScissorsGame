@@ -106,6 +106,14 @@ function displayFeedbackMessage(gameState, playerMove, computerMove) {
     });
 }
 
+function displayScoreBoard() {
+    setTimeout(() => {
+        document.querySelector('.won-score').innerHTML = `WON = ${score.won}`;
+        document.querySelector('.lost-score').innerHTML = `LOST = ${score.lost}`;
+        document.querySelector('.draw-score').innerHTML = `DRAW = ${score.draw}`;
+    }, 2500);
+}
+
 function displayMoveAndScore(gameState, playerMove, computerMove) {
     let playerMoveImage = getPlayerMoveImage(playerMove);
     let computerMoveImage = getComputerMoveImage(computerMove);
@@ -119,6 +127,7 @@ function displayMoveAndScore(gameState, playerMove, computerMove) {
     }
 
     displayFeedbackMessage(gameState, playerMove, computerMove);
+    displayScoreBoard();
 
     setTimeout(() => {
         playerMoveImage.style.display = 'block';
