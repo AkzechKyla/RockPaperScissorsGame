@@ -76,7 +76,8 @@ button {
 }
 
 .top-container.appear {
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 .left-loading-move {
@@ -120,6 +121,19 @@ button {
     25%, 75% {
         transform: translateY(-100px);
     }
+}
+
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feedback {
+    position: relative;
+    top: 10%;
+    font-size: 5em;
+    line-height: 110px;
 }
 
 .horizontal-paw {
