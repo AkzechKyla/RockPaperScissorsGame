@@ -83,20 +83,42 @@ function getComputerMoveImage(computerMove) {
     return computerMoveImage;
 }
 
+function displayFeedbackMessage(gameState, playerMove, computerMove) {
+    const p1 = document.getElementById('feedback1');
+    const p2 = document.getElementById('feedback2');
+
+    setTimeout(() => {
+        p1.innerHTML = `${playerMove} beats ${computerMove}.`;
+
+        if (gameState === 'won') {
+            p2.innerHTML = 'You won!';
+        } else if (gameState === 'lost') {
+            p2.innerHTML = 'You lost!';
+        } else if (gameState === 'draw') {
+            p2.innerHTML = "It's a TIE!";
+        }
+    }, 2500)
+
+    const top = document.querySelector('.top-container');
+    top.addEventListener('click', () => {
+        p1.innerHTML = '';
+        p2.innerHTML = '';
+    });
+}
+
 function displayMoveAndScore(gameState, playerMove, computerMove) {
     let playerMoveImage = getPlayerMoveImage(playerMove);
     let computerMoveImage = getComputerMoveImage(computerMove);
 
     if (gameState === 'won') {
         score.won += 1;
-        console.log(`${playerMove} beats ${computerMove}. You won.`);
     } else if (gameState === 'lost') {
         score.lost += 1;
-        console.log(`${computerMove} beats ${playerMove}. You lost.`);
     } else if (gameState === 'draw') {
         score.draw += 1;
-        console.log("It's a TIE!");
     }
+
+    displayFeedbackMessage(gameState, playerMove, computerMove);
 
     setTimeout(() => {
         playerMoveImage.style.display = 'block';
