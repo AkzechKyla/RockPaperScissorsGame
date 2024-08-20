@@ -90,11 +90,10 @@ function displayMoveAndScore(gameState, playerMove, computerMove) {
         playerMoveImage.style.display = 'block';
         computerMoveImage.style.display = 'block';
     }, 2500);
-
     console.log(score);
 }
 
-function testAnimation() {
+function hideMainContainer() {
     const moveButtons = document.querySelectorAll('.move-img');
     const base = document.querySelector('.base-container');
     const top = document.querySelector('.top-container');
@@ -102,17 +101,32 @@ function testAnimation() {
     moveButtons.forEach((button) => {
        button.addEventListener('click', () => {
         animateAfterMove();
-        base.classList.toggle('fade');
-        top.classList.toggle('fade-in');
-        top.style.display = 'block';
+        // base.classList.toggle('fade');
+        // top.classList.toggle('fade-in');
+        // top.classList.toggle('appear');
+        base.classList.add('fade');
+        top.classList.add('fade-in', 'appear');
+        console.log(`Play again. Base: ${base.classList}`);
+        console.log(`Play again. Top: ${top.classList}`);
        });
     });
 }
 
-function resetClickables() {
-    document.querySelector('.top-container').addEventListener('click', () => {
-        console.log('testing');
-    });
+function returnToGame() {
+    const top = document.querySelector('.top-container');
+    const base = document.querySelector('.base-container');
+
+    setTimeout(() => {
+        top.addEventListener('click', () => {
+            // top.classList.toggle('fade-in');
+            // top.classList.toggle('appear');
+            // base.classList.remove('fade');
+            top.classList.remove('fade-in', 'appear');
+            base.classList.remove('fade');
+            console.log(`Returning to Game: ${base.classList}`);
+            console.log(`Returning to Game: ${top.classList}`);
+        }, {once: true});
+    }, 2500);
 }
 
 function animateAfterMove() {
@@ -128,11 +142,9 @@ function animateAfterMove() {
     void rightMove.offsetWidth;
 
     leftMove.style.animation = 'slideInLeft 1s ease-in-out, moveUpDown 1.5s linear 1s';
-    // leftMove.style.animationFillMode = 'forwards';
     rightMove.style.animation = 'slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s';
-    // rightMove.style.animationFillMode = 'forwards';
 
-    resetClickables();
+    returnToGame();
 }
 
-testAnimation();
+hideMainContainer();
