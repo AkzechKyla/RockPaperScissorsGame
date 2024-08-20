@@ -53,8 +53,6 @@ function playGame(playerMove) {
     }
 
     displayFeedbackAndScore(gameState, playerMove, computerMove);
-
-    console.log(score);
 }
 
 function displayFeedbackAndScore(gameState, playerMove, computerMove) {
@@ -88,21 +86,8 @@ function testAnimation() {
 }
 
 function resetClickables() {
-    document.addEventListener('click', () => {
+    document.querySelector('.top-container').addEventListener('click', () => {
         console.log('testing');
-    });
-}
-
-function modifyClickables(cursorStyle) {
-    const moveButtons = document.querySelectorAll('.move-img');
-    const moveTexts = document.querySelectorAll('.moves-text');
-
-    moveButtons.forEach((button) => {
-        button.style.cursor = `${cursorStyle}`;
-    });
-
-    moveTexts.forEach((text) => {
-        text.style.cursor = `${cursorStyle}`;
     });
 }
 
@@ -119,11 +104,11 @@ function animateAfterMove() {
     void rightMove.offsetWidth;
 
     leftMove.style.animation = 'slideInLeft 1s ease-in-out, moveUpDown 1.5s linear 1s';
-    leftMove.style.animationFillMode = 'forwards';
+    // leftMove.style.animationFillMode = 'forwards';
     rightMove.style.animation = 'slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s';
-    rightMove.style.animationFillMode = 'forwards';
+    // rightMove.style.animationFillMode = 'forwards';
 
-    // resetClickables();
+    resetClickables();
 }
 
 testAnimation();
