@@ -1,10 +1,3 @@
-/* STEPS
-1. Buttons
-2. Get computer's move
-3. Compare to player's move
-4. Score
-*/
-
 const availableMoves = ['Rock', 'Paper', 'Scissors'];
 const score = {
     won: 0,
@@ -152,9 +145,6 @@ function hideMainContainer() {
     moveButtons.forEach((button) => {
        button.addEventListener('click', () => {
         animateAfterMove();
-        // base.classList.toggle('fade');
-        // top.classList.toggle('fade-in');
-        // top.classList.toggle('appear');
         base.classList.add('fade');
         top.classList.add('fade-in', 'appear');
         console.log(`Play again. Base: ${base.classList}`);
@@ -169,9 +159,6 @@ function returnToGame() {
 
     setTimeout(() => {
         top.addEventListener('click', () => {
-            // top.classList.toggle('fade-in');
-            // top.classList.toggle('appear');
-            // base.classList.remove('fade');
             top.classList.remove('fade-in', 'appear');
             base.classList.remove('fade');
             console.log(`Returning to Game: ${base.classList}`);
