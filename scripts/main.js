@@ -10,15 +10,18 @@ function playGame(playerMove) {
     let randomMove = Math.floor(Math.random() * availableMoves.length);
     let computerMove = availableMoves[randomMove];
     let gameState = '';
+    let message = '';
 
     if (playerMove === availableMoves[0]) {
         // if player's move is rock
         if (computerMove === availableMoves[1]) {
             // if computer's move is paper
             gameState = 'lost';
+            message = 'Paper beats Rock.';
         } else if (computerMove === availableMoves[2]) {
             // if computer's move is scissors
             gameState = 'won';
+            message = 'Rock beats Scissors.';
         } else if (playerMove === availableMoves[0]) {
             gameState = 'draw';
         }
@@ -27,9 +30,11 @@ function playGame(playerMove) {
         if (computerMove === availableMoves[0]) {
             // if computer's move is rock
             gameState = 'won';
+            message = 'Paper beats Rock.';
         } else if (computerMove === availableMoves[2]) {
             // if computer's move is scissors
             gameState = 'lost';
+            message = 'Scissors beats Paper.';
         } else if (playerMove === availableMoves[1]) {
             gameState = 'draw';
         }
@@ -37,16 +42,18 @@ function playGame(playerMove) {
         // if player's move is scissors
         if (computerMove === availableMoves[0]) {
             // if computer's move is rock
-            gameState = 'won';
+            message = 'Rock beats Scissors.';
+            gameState = 'lost';
         } else if (computerMove === availableMoves[1]) {
             // if computer's move is paper
-            gameState = 'lost';
+            gameState = 'won';
+            message = 'Scissors beats Paper.';
         } else if (playerMove === availableMoves[2]) {
             gameState = 'draw';
         }
     }
 
-    displayMoveAndScore(gameState, playerMove, computerMove);
+    displayMoveAndScore(gameState, playerMove, computerMove, message);
 }
 
 function getPlayerMoveImage(playerMove) {
@@ -77,18 +84,19 @@ function getComputerMoveImage(computerMove) {
     return computerMoveImage;
 }
 
-function displayFeedbackMessage(gameState, playerMove, computerMove) {
+function displayFeedbackMessage(gameState, message) {
     const p1 = document.getElementById('feedback1');
     const p2 = document.getElementById('feedback2');
 
     setTimeout(() => {
-        p1.innerHTML = `${playerMove} beats ${computerMove}.`;
+        p1.innerHTML = `${message}`;
 
         if (gameState === 'won') {
             p2.innerHTML = 'YOU WON!';
         } else if (gameState === 'lost') {
             p2.innerHTML = 'YOU LOST!';
         } else if (gameState === 'draw') {
+            p1.innerHTML = '';
             p2.innerHTML = "IT'S A TIE!";
         }
     }, defaultTimeout)
@@ -108,7 +116,7 @@ function displayScoreBoard() {
     }, defaultTimeout);
 }
 
-function displayMoveAndScore(gameState, playerMove, computerMove) {
+function displayMoveAndScore(gameState, playerMove, computerMove, message) {
     let playerMoveImage = getPlayerMoveImage(playerMove);
     let computerMoveImage = getComputerMoveImage(computerMove);
 
@@ -120,7 +128,7 @@ function displayMoveAndScore(gameState, playerMove, computerMove) {
         score.draw += 1;
     }
 
-    displayFeedbackMessage(gameState, playerMove, computerMove);
+    displayFeedbackMessage(gameState, message);
     displayScoreBoard();
 
     setTimeout(() => {
