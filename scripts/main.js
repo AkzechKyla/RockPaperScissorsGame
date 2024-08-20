@@ -11,6 +11,7 @@ const score = {
     lost: 0,
     draw: 0
 }
+const defaultTimeout = 2500;
 
 function playGame(playerMove) {
     let randomMove = Math.floor(Math.random() * availableMoves.length);
@@ -97,7 +98,7 @@ function displayFeedbackMessage(gameState, playerMove, computerMove) {
         } else if (gameState === 'draw') {
             p2.innerHTML = "It's a TIE!";
         }
-    }, 2500)
+    }, defaultTimeout)
 
     const top = document.querySelector('.top-container');
     top.addEventListener('click', () => {
@@ -111,7 +112,7 @@ function displayScoreBoard() {
         document.querySelector('.won-score').innerHTML = `WON = ${score.won}`;
         document.querySelector('.lost-score').innerHTML = `LOST = ${score.lost}`;
         document.querySelector('.draw-score').innerHTML = `DRAW = ${score.draw}`;
-    }, 2500);
+    }, defaultTimeout);
 }
 
 function displayMoveAndScore(gameState, playerMove, computerMove) {
@@ -132,7 +133,7 @@ function displayMoveAndScore(gameState, playerMove, computerMove) {
     setTimeout(() => {
         playerMoveImage.style.display = 'block';
         computerMoveImage.style.display = 'block';
-    }, 2500);
+    }, defaultTimeout);
 
     const top = document.querySelector('.top-container');
     top.addEventListener('click', () => {
@@ -176,7 +177,7 @@ function returnToGame() {
             console.log(`Returning to Game: ${base.classList}`);
             console.log(`Returning to Game: ${top.classList}`);
         }, {once: true});
-    }, 2500);
+    }, defaultTimeout);
 }
 
 function animateAfterMove() {
