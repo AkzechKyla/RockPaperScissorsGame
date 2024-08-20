@@ -81,27 +81,27 @@ function testAnimation() {
         animateAfterMove();
         base.classList.toggle('fade');
         document.querySelector('.top-container').classList.toggle('fade-in');
-        disableClickables();
+        modifyClickables('auto');
        });
     });
 }
 
-// function resetClickables() {
-//     document.addEventListener('click', () => {
-//         console.log('testing');
-//     });
-// }
+function resetClickables() {
+    document.addEventListener('click', () => {
+        console.log('testing');
+    });
+}
 
-function disableClickables() {
+function modifyClickables(cursorStyle) {
     const moveButtons = document.querySelectorAll('.move-img');
     const moveTexts = document.querySelectorAll('.moves-text');
 
     moveButtons.forEach((button) => {
-        button.style.cursor = 'auto';
+        button.style.cursor = `${cursorStyle}`;
     });
 
     moveTexts.forEach((text) => {
-        text.style.cursor = 'auto';
+        text.style.cursor = `${cursorStyle}`;
     });
 }
 
