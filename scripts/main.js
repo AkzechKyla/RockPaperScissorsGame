@@ -75,13 +75,14 @@ function displayFeedbackAndScore(gameState, playerMove, computerMove) {
 function testAnimation() {
     const moveButtons = document.querySelectorAll('.move-img');
     const base = document.querySelector('.base-container');
+    const top = document.querySelector('.top-container');
 
     moveButtons.forEach((button) => {
        button.addEventListener('click', () => {
         animateAfterMove();
         base.classList.toggle('fade');
-        document.querySelector('.top-container').classList.toggle('fade-in');
-        modifyClickables('auto');
+        top.classList.toggle('fade-in');
+        top.style.display = 'block';
        });
     });
 }
