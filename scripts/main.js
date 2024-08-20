@@ -80,10 +80,17 @@ function testAnimation() {
        button.addEventListener('click', () => {
         animateAfterMove();
         base.classList.toggle('fade');
+        document.querySelector('.top-container').classList.toggle('fade-in');
         disableClickables();
        });
     });
 }
+
+// function resetClickables() {
+//     document.addEventListener('click', () => {
+//         console.log('testing');
+//     });
+// }
 
 function disableClickables() {
     const moveButtons = document.querySelectorAll('.move-img');
@@ -114,6 +121,8 @@ function animateAfterMove() {
     leftMove.style.animationFillMode = 'forwards';
     rightMove.style.animation = 'slideInRight 1s ease-in-out, moveUpDown 1.5s linear 1s';
     rightMove.style.animationFillMode = 'forwards';
+
+    // resetClickables();
 }
 
 testAnimation();
